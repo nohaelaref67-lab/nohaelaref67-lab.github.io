@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noha Mahmoud | Architect and Interior Designer</title>
+<meta name="description" content="Selected works by Noha Mahmoud, architect and interior designer based in Cairo: entrance lobbies, mall corridors and residential interiors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F0;
+    --ink: #222222;
+    --muted: #8A857D;
+    --accent: #A6845C;
+    --line: #DDD8CF;
+    --gap: 12px;
+    --side: clamp(20px, 5vw, 72px);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 15px/1.7 Inter, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 300; margin: 0; line-height: 1.1; }
+  .label { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+
+  /* Navigation */
+  .nav {
+    position: fixed; inset: 0 0 auto 0; z-index: 10;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px var(--side);
+    color: #fff;
+    transition: background .3s, color .3s, box-shadow .3s;
+  }
+  .nav.solid { background: var(--bg); color: var(--ink); box-shadow: 0 1px 0 var(--line); }
+  .nav .name { font-family: "Cormorant Garamond", Georgia, serif; font-size: 20px; letter-spacing: .04em; }
+  .nav ul { display: flex; gap: clamp(16px, 3vw, 36px); list-style: none; margin: 0; padding: 0; }
+  .nav li a { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+  .nav li a:hover { color: var(--accent); }
+
+  /* Cover */
+  .cover { position: relative; height: 100vh; min-height: 520px; color: #fff; }
+  .cover img { position: absolute; inset: 0; height: 100%; object-fit: cover; }
+  .cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.62), rgba(0,0,0,.12) 55%, rgba(0,0,0,.3)); }
+  .cover .text { position: absolute; z-index: 1; left: var(--side); right: var(--side); bottom: clamp(40px, 9vh, 96px); }
+  .cover h1 { font-size: clamp(44px, 8vw, 104px); letter-spacing: .01em; }
+  .cover .role { margin-top: 14px; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; }
+  .cover .years { margin-top: 6px; font-size: 12px; letter-spacing: .12em; opacity: .8; }
+
+  /* Sections */
+  section { padding: clamp(64px, 10vw, 128px) var(--side) 0; }
+  .wrap { max-width: 1320px; margin: 0 auto; }
+
+  .about { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 6vw, 96px); }
+  .about h2 { font-size: clamp(30px, 4vw, 46px); margin-top: 14px; }
+  .about p { margin: 0 0 1em; max-width: 60ch; }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; margin-top: 36px; }
+  .facts h3 { font: 500 11px/1.4 Inter, sans-serif; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .facts p { margin: 0 0 .5em; font-size: 14px; }
+  .facts span { color: var(--muted); }
+
+  .divider { display: flex; align-items: baseline; gap: 24px; border-top: 1px solid var(--line); padding-top: 28px; }
+  .divider .num { font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(48px, 7vw, 88px); color: var(--accent); line-height: 1; }
+  .divider h2 { font-size: clamp(28px, 4vw, 44px); }
+
+  .project { margin-top: clamp(40px, 6vw, 80px); }
+  .project header { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(20px, 6vw, 96px); align-items: end; margin-bottom: 24px; }
+  .project h3 { font-size: clamp(26px, 3.2vw, 38px); margin-top: 8px; }
+  .project header p { margin: 0; max-width: 58ch; color: #4a4742; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
+  .grid figure { margin: 0; overflow: hidden; cursor: zoom-in; background: #e9e5dd; }
+  .grid figure:first-child { grid-column: 1 / -1; }
+  .grid figure:not(:first-child) img { aspect-ratio: 3 / 2; object-fit: cover; }
+  .grid figure:nth-child(even):last-child { grid-column: 1 / -1; }
+  .grid figure:nth-child(even):last-child img { aspect-ratio: auto; }
+  .grid figure img { transition: transform .6s ease; }
+  .grid figure:hover img { transform: scale(1.02); }
+
+  /* Contact */
+  .contact { padding-bottom: clamp(64px, 10vw, 120px); }
+  .contact .inner { border-top: 1px solid var(--line); padding-top: 40px; display: grid; grid-template-columns: 5fr 7fr; gap: clamp(24px, 6vw, 96px); }
+  .contact h2 { font-size: clamp(30px, 4vw, 46px); margin-top: 14px; }
+  .contact a.big { display: block; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(22px, 3vw, 34px); border-bottom: 1px solid var(--line); padding: 14px 0; overflow-wrap: anywhere; }
+  .contact a.big:hover { color: var(--accent); }
+  footer { padding: 24px var(--side); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 11px; letter-spacing: .1em; color: var(--muted); border-top: 1px solid var(--line); }
+
+  /* Lightbox */
+  .lightbox { position: fixed; inset: 0; z-index: 20; background: rgba(20,19,17,.94); display: flex; align-items: center; justify-content: center; padding: 3vmin; cursor: zoom-out; }
+  .lightbox[hidden] { display: none; }
+  .lightbox img { width: auto; max-width: 100%; max-height: 100%; }
+
+  @media (max-width: 760px) {
+    .about, .project header, .contact .inner { grid-template-columns: 1fr; }
+    .facts { grid-template-columns: 1fr; }
+    .grid { grid-template-columns: 1fr; }
+    .nav .name { font-size: 17px; }
+    .nav ul { gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="name" href="#top">Noha Mahmoud</a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="cover" id="top">
+  <img src="images/lobby-matruh-01.jpg" alt="Entrance lobby with curved stone walls and a suspended chandelier">
+  <div class="text">
+    <h1>Noha Mahmoud</h1>
+    <div class="role">Architect &nbsp;|&nbsp; Interior Designer</div>
+    <div class="years">Selected Works 2022 – 2026</div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="label">About</div>
+      <h2>Architecture, interiors and exteriors, from concept to visualisation.</h2>
+    </div>
+    <div>
+      <p>Architect and interior designer with a B.Sc. in Architecture from El Shorouk Academy (2022) and professional experience since 2022 across interior and exterior design.</p>
+      <p>Project experience covers residential building entrances and lobbies, apartment and villa interiors, mall corridors, and commercial and administrative spaces, together with custom furniture design. Projects are taken from concept through 3D modelling and photorealistic visualisation.</p>
+      <div class="facts">
+        <div>
+          <h3>Experience</h3>
+          <p>Architect and Interior Designer<br><span>ARCHRETE, New Cairo · 2024 – Present</span></p>
+          <p>Interior and Furniture Designer<br><span>MY Design Studio · 2023</span></p>
+          <p>Architect, Building Permits<br><span>Consultancy office for Hyde Park Developments · 2022 – 2023</span></p>
+        </div>
+        <div>
+          <h3>Education</h3>
+          <p>B.Sc. in Engineering, Architecture Department<br><span>El Shorouk Academy · 2017 – 2022 · Very Good</span></p>
+          <h3 style="margin-top:22px">Membership</h3>
+          <p>Egyptian Engineers Syndicate</p>
+        </div>
+        <div>
+          <h3>Software</h3>
+          <p>3ds Max · V-Ray · Lumion<br>AutoCAD · Revit<br>Photoshop · PowerPoint</p>
+        </div>
+        <div>
+          <h3>Languages</h3>
+          <p>Arabic · English · French (basic)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="divider"><div class="num">01</div><h2>Lobbies and Entrances</h2></div>
+
+    <article class="project">
+      <header>
+        <div><div class="label">Residential · Marsa Matruh</div><h3>Entrance Lobby</h3></div>
+        <p>Entrance lobby for a residential development on the north coast. Curved stone-clad walls and wood panelling frame the arrival sequence, with a suspended glass chandelier centred above an inlaid stone floor.</p>
+      </header>
+      <div class="grid">
+        <figure><img src="images/lobby-matruh-01.jpg" alt="Lobby view towards the branded feature wall" loading="lazy"></figure>
+        <figure><img src="images/lobby-matruh-02.jpg" alt="Lobby view towards the entrance door" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="project">
+      <header>
+        <div><div class="label">Residential</div><h3>Building Entrance and Lift Lobby</h3></div>
+        <p>Ground-floor entrance for an apartment building. White marble feature walls, slatted wood doors and a stepped ceiling with cove lighting, tied together by a grey stone floor with inlaid lines.</p>
+      </header>
+      <div class="grid">
+        <figure><img src="images/entrance-01.jpg" alt="Entrance hall with marble feature walls" loading="lazy"></figure>
+        <figure><img src="images/entrance-02.jpg" alt="Lift lobby" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <div class="divider" style="margin-top:clamp(64px,10vw,128px)"><div class="num">02</div><h2>Commercial and Administrative</h2></div>
+
+    <article class="project">
+      <header>
+        <div><div class="label">Commercial · Mall</div><h3>Retail Corridor</h3></div>
+        <p>Public circulation for the retail floors of a mall. Stone-clad columns, a linear lighting track and a two-tone marble floor guide movement past the shopfronts towards the lift core.</p>
+      </header>
+      <div class="grid">
+        <figure><img src="images/mall-retail-01.jpg" alt="Retail corridor overlooking the atrium" loading="lazy"></figure>
+        <figure><img src="images/mall-retail-02.jpg" alt="Shopfront and lift" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="project">
+      <header>
+        <div><div class="label">Administrative · Mall</div><h3>Administrative Floor Corridor</h3></div>
+        <p>Corridor and lift lobby for the administrative floors. A lighter, calmer palette than the retail levels: plain wall panels, wood doors and a marble floor split into a light and a dark band.</p>
+      </header>
+      <div class="grid">
+        <figure><img src="images/mall-admin-01.jpg" alt="Administrative corridor with glazed atrium wall" loading="lazy"></figure>
+        <figure><img src="images/mall-admin-02.jpg" alt="Lift lobby on the administrative floor" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <div class="divider" style="margin-top:clamp(64px,10vw,128px)"><div class="num">03</div><h2>Residential Interiors</h2></div>
+
+    <article class="project">
+      <header>
+        <div><div class="label">Residential · Villa</div><h3>Master Bedroom</h3></div>
+        <p>A soft neutral scheme built around a framed mural behind the bed, with classic wall panels, a glazed wardrobe and a floating dressing shelf set against a round mirror.</p>
+      </header>
+      <div class="grid">
+        <figure><img src="images/villa-bedroom-01.jpg" alt="Master bedroom, bed wall with mural" loading="lazy"></figure>
+        <figure><img src="images/villa-bedroom-02.jpg" alt="Master bedroom, dressing wall" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="project">
+      <header>
+        <div><div class="label">Residential · Coastal</div><h3>Coastal Residence Bedrooms</h3></div>
+        <p>Three bedrooms sharing one language: white plaster, arches, rattan and light oak joinery, with blue as the only accent. Wardrobes and the bunk-bed unit are designed as built-in pieces.</p>
+      </header>
+      <div class="grid">
+        <figure><img src="images/coastal-01.jpg" alt="Bedroom with lit arched niche" loading="lazy"></figure>
+        <figure><img src="images/coastal-02.jpg" alt="Twin bedroom with stone feature wall" loading="lazy"></figure>
+        <figure><img src="images/coastal-03.jpg" alt="Rattan-front wardrobe and arched doors" loading="lazy"></figure>
+        <figure><img src="images/coastal-04.jpg" alt="Children's room with bunk bed" loading="lazy"></figure>
+        <figure><img src="images/coastal-05.jpg" alt="Wardrobe with cane panels" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="project">
+      <header>
+        <div><div class="label">Residential</div><h3>Master Bedroom, Dark Wood Scheme</h3></div>
+        <p>Upholstered full-height headboard panels between mirrored side walls, a dark wood wardrobe with glazed centre doors and a recessed ceiling with cove lighting.</p>
+      </header>
+      <div class="grid">
+        <figure><img src="images/master-bedroom-01.jpg" alt="Master bedroom with upholstered headboard wall" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="project">
+      <header>
+        <div><div class="label">Residential · Furniture and Joinery</div><h3>Twin Bedrooms</h3></div>
+        <p>Two twin bedrooms where the built-in furniture carries the design: a wardrobe wall with a central dressing unit, and a double study wall with shelving and concealed lighting.</p>
+      </header>
+      <div class="grid">
+        <figure><img src="images/twin-01.jpg" alt="Twin bedroom with panelled bed wall" loading="lazy"></figure>
+        <figure><img src="images/twin-02.jpg" alt="Wardrobe and dressing unit" loading="lazy"></figure>
+        <figure><img src="images/twin-03.jpg" alt="Double study wall" loading="lazy"></figure>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap inner">
+    <div>
+      <div class="label">Contact</div>
+      <h2>Available for architecture and interior design roles.</h2>
+    </div>
+    <div>
+      <a class="big" href="mailto:nohaelaref67@gmail.com">nohaelaref67@gmail.com</a>
+      <a class="big" href="https://www.linkedin.com/in/noha-mahmoud-59294925" target="_blank" rel="noopener">LinkedIn</a>
+      <p class="label" style="margin-top:20px">Heliopolis, Cairo, Egypt</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Noha Mahmoud · Architect | Interior Designer</span>
+  <span>Selected Works 2022 – 2026</span>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden><img alt=""></div>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('solid', window.scrollY > window.innerHeight - 80);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  document.querySelectorAll('.grid figure img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.hidden = false;
+    });
+  });
+  lightbox.addEventListener('click', () => { lightbox.hidden = true; });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.hidden = true; });
+</script>
+</body>
+</html>
